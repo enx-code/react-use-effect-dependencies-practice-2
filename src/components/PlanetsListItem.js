@@ -7,7 +7,7 @@ function PlanetsListItem(props) {
 
   console.log("Planet", planet);
   useEffect(() => {
-    if(planet.film.length === 0) return
+    if(planet.films.length === 0) return
     fetch(planet.films[0])
       .then((res)=>res.json())
       .then((filmData)=>setFirstFilm(filmData.title))

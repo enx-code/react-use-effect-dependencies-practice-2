@@ -8,20 +8,20 @@ export default function App() {
 
   const [data, setData] = useState(null);
 
-  console.log({ data });
+  console.log("what is it", {data}, "type", dataType);
 
   useEffect(() => {
     if (!dataType) return;
 
     fetch(`https://swapi-new.herokuapp.com/api/${dataType}/`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data.results));
   }, [dataType]);
 
   return (
     <div>
       <SelectTypeForm setDataType={setDataType} />
-      {data && <DataList dataType={dataType} data={data.results} />}
+      {data && <DataList dataType={dataType} data={data} />}
     </div>
   );
 }
